@@ -1,5 +1,12 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import {
+  Button,
+  Input,
+  Label,
+  Checkbox,
+  Alert,
+} from "@/components/ui";
 
 export default function LoginForm() {
   const navigate = useNavigate();
@@ -74,94 +81,96 @@ export default function LoginForm() {
         {/* Header */}
         <div>
           <h2 className="text-3xl font-bold text-gray-800">Đăng Nhập</h2>
-          <p className="text-gray-500 mt-1">Đăng nhập vào tài khoản của bạn</p>
+          <p className="mt-1 text-gray-500">
+            Đăng nhập vào tài khoản của bạn
+          </p>
         </div>
 
         {/* General Error */}
-        {generalError && (
-          <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg text-sm">
-            {generalError}
-          </div>
-        )}
+        {generalError && <Alert message={generalError} />}
 
-        {/* Email Input */}
+        {/* Email */}
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-            Email
-          </label>
-          <input
+          <Label htmlFor="email">Email</Label>
+
+          <Input
             id="email"
             type="email"
             placeholder="Nhập email của bạn"
             value={email}
+            error={!!errors.email}
+            disabled={isLoading}
             onChange={(e) => {
               setEmail(e.target.value);
               setErrors({ ...errors, email: "" });
             }}
-            disabled={isLoading}
-            className={`w-full border rounded-lg p-3 focus:outline-none focus:ring-2 transition ${
-              errors.email
-                ? "border-red-500 focus:ring-red-500"
-                : "border-gray-300 focus:ring-blue-500"
-            } disabled:bg-gray-100`}
           />
-          {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
+
+          {errors.email && (
+            <p className="mt-1 text-sm text-red-500">
+              {errors.email}
+            </p>
+          )}
         </div>
 
-        {/* Password Input */}
+        {/* Password */}
         <div>
-          <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
-            Mật Khẩu
-          </label>
-          <input
+          <Label htmlFor="password">Mật Khẩu</Label>
+
+          <Input
             id="password"
             type="password"
             placeholder="Nhập mật khẩu của bạn"
             value={password}
+            error={!!errors.password}
+            disabled={isLoading}
             onChange={(e) => {
               setPassword(e.target.value);
               setErrors({ ...errors, password: "" });
             }}
-            disabled={isLoading}
-            className={`w-full border rounded-lg p-3 focus:outline-none focus:ring-2 transition ${
-              errors.password
-                ? "border-red-500 focus:ring-red-500"
-                : "border-gray-300 focus:ring-blue-500"
-            } disabled:bg-gray-100`}
           />
-          {errors.password && <p className="text-red-500 text-sm mt-1">{errors.password}</p>}
+
+          {errors.password && (
+            <p className="mt-1 text-sm text-red-500">
+              {errors.password}
+            </p>
+          )}
         </div>
 
-        {/* Remember Me & Forgot Password */}
+        {/* Remember Me */}
         <div className="flex items-center justify-between">
-          <label className="flex items-center gap-2 cursor-pointer">
-            <input
-              type="checkbox"
+          <label className="flex cursor-pointer items-center gap-2">
+            <Checkbox
               checked={rememberMe}
-              onChange={(e) => setRememberMe(e.target.checked)}
               disabled={isLoading}
-              className="w-4 h-4 rounded border-gray-300 cursor-pointer"
+              onChange={(e) => setRememberMe(e.target.checked)}
             />
-            <span className="text-sm text-gray-700">Ghi nhớ tôi</span>
+
+            <span className="text-sm text-gray-700">
+              Ghi nhớ tôi
+            </span>
           </label>
-          <a href="#" className="text-sm text-blue-600 hover:text-blue-700 font-medium">
+
+          <a
+            href="#"
+            className="text-sm font-medium text-blue-600 hover:text-blue-700"
+          >
             Quên mật khẩu?
           </a>
         </div>
 
-        {/* Sign In Button */}
-        <button
-          type="submit"
-          disabled={isLoading}
-          className="w-full bg-blue-600 text-white rounded-lg p-3 font-medium hover:bg-blue-700 transition disabled:bg-gray-400 disabled:cursor-not-allowed"
-        >
+        {/* Button */}
+        <Button type="submit" disabled={isLoading}>
           {isLoading ? "Đang đăng nhập..." : "Đăng Nhập"}
-        </button>
+        </Button>
 
-        {/* Sign Up Link */}
+        {/* Register */}
         <p className="text-center text-sm text-gray-600">
           Chưa có tài khoản?{" "}
-          <a href="#" className="text-blue-600 hover:text-blue-700 font-medium">
+          <a
+            href="#"
+            className="font-medium text-blue-600 hover:text-blue-700"
+          >
             Đăng ký tại đây
           </a>
         </p>
