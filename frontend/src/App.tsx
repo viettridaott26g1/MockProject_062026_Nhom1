@@ -1,12 +1,12 @@
 
 import './App.css'
 
-import FormLogin from './features/auth/components/Login-form'
+import LoginPage from './features/auth/components/login-page'
 
 function App() {
   return (
     <>
-      <FormLogin />
+      <LoginPage />
     </>
   )
 }
