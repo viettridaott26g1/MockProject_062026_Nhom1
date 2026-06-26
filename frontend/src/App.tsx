@@ -1,16 +1,20 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "./assets/vite.svg";
-import heroImg from "./assets/hero.png";
 import "./App.css";
-import HomeLayout from "./layouts/home-layout";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import AuthLayout from "./layouts/auth-layout";
+import LoginForm from "./features/auth/components/login-form";
+import RegisterForm from "./features/auth/components/register-form";
 
 function App() {
-  // const [count, setCount] = useState(0);
-
   return (
     <>
-      <HomeLayout></HomeLayout>
+      <BrowserRouter>
+        <Routes>
+          <Route element={<AuthLayout></AuthLayout>}>
+            <Route path="/login" element={<LoginForm />} />
+            <Route path="/register" element={<RegisterForm />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
