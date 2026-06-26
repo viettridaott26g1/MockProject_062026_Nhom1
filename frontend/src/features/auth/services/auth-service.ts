@@ -1,5 +1,5 @@
 import { api } from "@/lib/axios";
-import type { LoginFormValues, RegisterFormValues } from "../types/auth-types";
+import type { LoginFormValues } from "../types/auth-types";
 
 export const authService = {
   login: async (data: LoginFormValues) => {
@@ -7,12 +7,7 @@ export const authService = {
     return res.data;
   },
 
-  register: async (data: RegisterFormValues) => {
-    const res = await api.post("/auth/register", data);
-    return res.data;
-  },
-
   logout: async () => {
-    await api.post("/auth/logout")
-  }
+    await api.post("/auth/logout");
+  },
 };
