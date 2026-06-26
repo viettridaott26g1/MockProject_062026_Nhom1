@@ -10,7 +10,7 @@ interface AuthInputFieldProps {
   id: string;
 }
 
-function AuthInputField({
+export function AuthInputField({
   label,
   type,
   placeholder,
@@ -62,5 +62,3 @@ function AuthInputField({
     </div>
   );
 }
-
-export default AuthInputField;

@@ -1,7 +1,7 @@
-import AuthInputField from "./AuthInputField";
-import SubmitButton from "./SubmitButton";
+import { AuthInputField } from "@/components/ui/auth-input-field";
+import { SubmitButton } from "@/components/ui/submit-button";
 
-interface LoginFormCardProps {
+interface LoginFormProps {
   email: string;
   password: string;
   rememberMe: boolean;
@@ -11,7 +11,7 @@ interface LoginFormCardProps {
   handleFormSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
 }
 
-function LoginFormCard({
+export function LoginForm({
   email,
   password,
   rememberMe,
@@ -19,7 +19,7 @@ function LoginFormCard({
   handlePasswordChange,
   handleRememberMeChange,
   handleFormSubmit,
-}: LoginFormCardProps) {
+}: LoginFormProps) {
   return (
     <div className="relative z-20 mx-4 w-full max-w-md sm:mx-6 lg:ml-auto lg:mr-16 xl:mr-24">
       {/* Glass card wrapper */}
@@ -113,5 +113,3 @@ function LoginFormCard({
     </div>
   );
 }
-
-export default LoginFormCard;

@@ -1,6 +1,6 @@
 import careHeroBg from "@/assets/care-hero-bg.png";
 
-function HeroSection() {
+export function LoginHero() {
   return (
     <>
       {/* Full-bleed background image */}
@@ -75,5 +75,3 @@ function HeroSection() {
     </>
   );
 }
-
-export default HeroSection;

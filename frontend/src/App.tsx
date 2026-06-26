@@ -1,7 +1,7 @@
-import { CarePortalLoginForm } from "./features/auth";
+import { LoginPage } from "./features/auth";
 
 function App() {
-  return <CarePortalLoginForm />;
+  return <LoginPage />;
 }
 
 export default App

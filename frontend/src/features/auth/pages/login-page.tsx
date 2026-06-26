@@ -1,15 +1,15 @@
 import { useState } from "react";
-import MainLayout from "./components/MainLayout";
-import HeroSection from "./components/HeroSection";
-import LoginFormCard from "./components/LoginFormCard";
+import { AuthLayout } from "@/layouts/auth-layout";
+import { LoginHero } from "../components/login-hero";
+import { LoginForm } from "../components/login-form";
 
-function CarePortalLoginForm() {
-  // --- State Management (camelCase) ---
+export default function LoginPage() {
+  // --- State Management ---
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
 
-  // --- Event Handlers (camelCase with 'handle' prefix) ---
+  // --- Event Handlers ---
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
   };
@@ -29,9 +29,8 @@ function CarePortalLoginForm() {
   };
 
   return (
-    <MainLayout>
-      <HeroSection />
-      <LoginFormCard
+    <AuthLayout hero={<LoginHero />}>
+      <LoginForm
         email={email}
         password={password}
         rememberMe={rememberMe}
@@ -40,8 +39,6 @@ function CarePortalLoginForm() {
         handleRememberMeChange={handleRememberMeChange}
         handleFormSubmit={handleFormSubmit}
       />
-    </MainLayout>
+    </AuthLayout>
   );
 }
-
-export default CarePortalLoginForm;

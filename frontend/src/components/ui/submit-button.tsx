@@ -5,7 +5,7 @@ interface SubmitButtonProps {
   type?: "button" | "submit" | "reset";
 }
 
-function SubmitButton({
+export function SubmitButton({
   text,
   onClick,
   isLoading = false,
@@ -47,5 +47,3 @@ function SubmitButton({
     </button>
   );
 }
-
-export default SubmitButton;
