@@ -1,11 +1,11 @@
+import AuthLayout from "@/layouts/auth-layout";
 import LoginHero from "../components/login-hero";
 import LoginForm from "../components/login-form";
 
 export default function LoginPage() {
   return (
-    <div className="flex min-h-screen bg-white">
-      <LoginHero />
+    <AuthLayout hero={<LoginHero />}>
       <LoginForm />
-    </div>
+    </AuthLayout>
   );
 }
