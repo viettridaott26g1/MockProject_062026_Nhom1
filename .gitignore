@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.env
+.agents/
+AGENTS.md
+target/
+.idea/
+.vscode/
