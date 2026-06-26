@@ -13,10 +13,12 @@ import {
 import { registerSchema, type RegisterFormValues } from "../types/auth-types";
 import { useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
+import { useRegister } from "../hooks/use-register";
 
 export const RegisterForm = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const { mutate: register } = useRegister();
 
   const form = useForm<RegisterFormValues>({
     resolver: zodResolver(registerSchema),
@@ -29,7 +31,7 @@ export const RegisterForm = () => {
   });
 
   const handleSubmit = (data: RegisterFormValues) => {
-    console.log(data);
+    register(data);
   };
 
   return (

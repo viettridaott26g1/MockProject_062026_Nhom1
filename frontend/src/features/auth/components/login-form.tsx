@@ -12,9 +12,12 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { EyeOff, Eye } from "lucide-react";
+import { useLogin } from "../hooks/use-login";
 
 export const LoginForm = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const { mutate: login } = useLogin();
+
   const form = useForm<LoginFormValues>({
     resolver: zodResolver(loginSchema),
     defaultValues: {
@@ -24,7 +27,7 @@ export const LoginForm = () => {
   });
 
   const handleSubmit = (data: LoginFormValues) => {
-    console.log(data);
+    login(data);
   };
 
   return (
