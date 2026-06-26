@@ -1,1 +1,1 @@
-export * from './validation.Common';
+export * from './validationCommon';
