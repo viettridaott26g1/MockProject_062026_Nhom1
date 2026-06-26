@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { AuthLayout } from "@/layouts/AuthLayout";
-import { LoginForm } from "./components/LoginForm";
-import { LoginSuccess } from "./components/LoginSuccess";
+import { AuthLayout } from "@/layouts/auth-layout";
+import { LoginForm } from "./components/login-form";
+import { LoginSuccess } from "./components/login-success";
 
 interface LoginProps {
   onToggleView?: () => void;
