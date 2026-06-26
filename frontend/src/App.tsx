@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import LoginPage from "./features/auth/pages/LoginPage";
-import Dashboard from "./features/dashboard/pages/Dashboard";
+import LoginPage from "./features/auth/pages/login-page";
+import Dashboard from "./features/dashboard/pages/dashboard-page";
 
 function App() {
   return (
